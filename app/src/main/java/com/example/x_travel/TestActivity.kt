@@ -19,6 +19,7 @@ class TestActivity : AppCompatActivity() {
         val test_btn = findViewById<Button>(R.id.testButton)//임시 버튼
 
         test_btn.setOnClickListener {
+            Log.i("MyApmlifyApp","${Amplify.Storage}")
 //
 //            val exampleFile = File(applicationContext.filesDir, "ExampleKey")
 //            exampleFile.writeText("Example file contents")
@@ -29,6 +30,8 @@ class TestActivity : AppCompatActivity() {
 //                { result -> Log.d("MyAmplifyApp", "Successfully uploaded: " + result) },
 //                { error -> Log.d("MyAmplifyApp", "Upload failed", error) }
 //            )
+
+//            val todo = Todo.builder()
 
 //            MyAmplifyApp.uploadFile()
 
@@ -72,7 +75,8 @@ class TestActivity : AppCompatActivity() {
 
     fun uploadInputStream(uri: Uri) {
         val stream = contentResolver.openInputStream(uri)
-        val millisecond= System.currentTimeMillis().toString()
+        var millisecond= System.currentTimeMillis().toString()
+        millisecond= "test_folder/$millisecond.jpg"
 
         if (stream != null) {
             try {
